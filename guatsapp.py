@@ -18,6 +18,15 @@ mensajes = [
 ]
 
 def mejores_amigos(mensajes):
+    amistades = set_amistades(mensajes)
+    amistades = ordenar(amistades)
+    string = (
+        'Amigos: %s - %s \nGrado de Amistad: %d' %
+        (amistades[0][0], amistades[0][1], amistades[0][2])
+    )
+    return string
+
+def set_amistades(mensajes):
     amistades = []
     for mensaje in mensajes:
         usuario1 = mensaje[0]
@@ -50,6 +59,4 @@ def ordenar(amistades):
                 ordenar = True
     return amistades
 
-amistades = mejores_amigos(mensajes)
-amistades = ordenar(amistades)
-print (amistades)
+print (mejores_amigos(mensajes))
